@@ -1,7 +1,7 @@
 const express = require('express');
 const fileupload = require('express-fileupload');
-const { findSourceMap } = require('module');
 const pdfparse = require('pdf-parse');
+const { default: ler } = require('./leitor');
 
 const app = express();
 
@@ -15,13 +15,11 @@ app.post('/extract-text', (req, res) => {
     }
 
     pdfparse(req.files.pdfFile).then(result => {
-        console.log(typeof result.text)
-        console.log(result.text)
+        console.log(result.text.split('6013').length)
+        let nomes = ['quatro mil', 'treze  mil']
+        console.log(ler(result.text, nomes, '6013').length)
         res.send(result.text)
-        console.log(result.text.indexof('oi'))
     })
-    
 })
 
 app.listen(3000)
-//npm i express express-fileupload pdf-parse
