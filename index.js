@@ -12,6 +12,7 @@ async function insert_fun(nome,email,cpf,nas_data,tel_fixo,tel_celular,cep,numer
   const con = await connect();
   con.query(`insert into funcionario(nome,email,cpf,nas_data,tel_fixo,tel_celular,cep,numero,rua,bairro,cidade,estado,complemento)
   values ('${nome}','${email}','${cpf}','${nas_data}','${tel_fixo}','${tel_celular}','${cep}','${numero}','${rua}','${bairro}','${cidade}','${estado}','${complemento}');`)
+  permissao = true
 }
 
 async function insert_esc(escolas,cpf){
@@ -120,20 +121,17 @@ async function trechos(nomes) {
     return sendrequest
 }
 
-// const job = schedule.scheduleJob('1 * * * *', function(){
-//   console.log('one second has passed')
-// });
-
 var permissao = true
 var x = ''
+const job = schedule.scheduleJob('0 0 9 * * 2-6', function(){
+  permissao = true
+  // console.log('pemitido')
+});
+
 app.get("/pdf_inf", (req, resp) => {
   async function main() {
-    const job = schedule.scheduleJob('0 * * * * *', function(){
-      permissao = true
-      console.log('pemitido')
-    });
     if(permissao){x = await associados()
-      console.log('rodou')
+      // console.log('rodou')
       permissao = false}
     resp.send(x);
     }
