@@ -1,0 +1,53 @@
+Revisão
+Grafos são compostos vértices e arestas
+Posso representar por dicionários ou matrizes
+
+Grafos resolvem muitos problemas práticos e são mais fáceis de entender por ter uma representação visual
+
+Existem grafos importantes
+Cavalo 3-por-3
+Ele é desenhado num tabuleiro 3x3 onde coloco um vértice no canto superior esquerdo, e faço as arestas para os novos vértices seguindo os movimentos de um cavalo do xadrez
+Esse grafo tem 3 propriedades raras:
+1) Planar, isto é, consigo redesenhar sem cruzar linhas. A B C e D mantêm, e os números coloco no lado oposto
+Apesar de um desenho diferente não mudar o grafo, porque os vértices são os mesmos e as arestas também, eu consigo ver mais propriedades se redesenho sem cruzar linhas.
+2) resolve o problema das damas, chamado de Emparelhamento Máximo, A3, B4, C1 e D2
+3) resolve o problema dos cavaleiros, chamado de Circuito Hamiltoniano, saio de um vértice, passo em todos os outros, sem repetir, e volto para a origem
+Isso pode ser feito em torno de uma mesa redonda
+
+Porque é importante guardar grafos com propriedades raras?
+Porque ele é usado para teste de programas que estão tentando resolver os 3 problemas
+
+Cubo Q3 (se chama cubo porque o desenho é um cubo)
+Tenho sequencias de 3 bits, e vou ligar duas sequencias se tiverem apenas um bit de diferença
+000 001 010 100 011 101 110 111
+Descubro o vértice de ligação, somando os dois da ponta
+1) Posso desenhar sem cruzar linha da seguinte forma, 
+vejo de cima, diminuo o quadrado de cima
+2) existem 3 conjuntos de casamento, onde não sobra vértice. Na diagonal, na vertical, na horizontal
+3) Existe um circuito hamiltoniano, onde posso colocar as sequencias entorno de uma mesa redonda, resolvendo o problema dos cavaleiros: 000-100-101-001-011-111-110-010-000
+
+Outra forma de desenhar é a forma Bipartida
+Separo em dois conjuntos de vértices, vértices de cima e vértices debaixo, todas as ligações saem de cima para baixo, não tem ligação entre os de cima, e nem entre os debaixo
+Desenhe o grafo do Exercício E1.25 e mostre um casamento onde todas as máquinas estão funcionando
+Qual algoritmo faz essa escolha?
+Escolho a máquina que tem menos operários
+Retiro a máquina, e retiro o operário da listas das outras máquinas
+
+Escolhi a máquina 1 e retirei B de todas as listas
+Escolhi a máquina 4 e retirei E de todas as listas
+Escolhi a máquina 5 e retirei F de todas as listas
+Escolhi a máquina 2 e retirei A de todas as listas
+Sobrou 3 com C
+
+Para fazer um programa preciso definir um dicionário
+G = {
+  1: ['B'],
+  2: ['A', 'B', 'E', 'F'],
+  3: ['A', 'B', 'C'],
+  4: ['B', 'E'],
+  5: ['B', 'E', 'F']
+}
+Código: Máquinas e operários.py
+
+
+2) 
