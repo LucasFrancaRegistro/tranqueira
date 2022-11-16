@@ -1,0 +1,45 @@
+Revisão:
+Grafos são compostos de vértices e arestas
+Apesar do desenho não mudar o grafo, ele permite "ver" propriedades no grafo, ex.: desenhando planar vejo melhor Emparelhamentos Máximos e Circuitos Hamiltonianos
+Existem duas Estruturas de Dados para grafos: matrizes e dicionários. Matrizes ocupam muito espaço, então, em geral usamos dicionários
+Dois grafos vão cair na prova
+Cavalo 3-por-3 e Cubo Q3
+Eles tem 3 propriedades raras: planares, tem um Emparelhamento Máximo, e um Circuito Hamiltoniano
+Os desenhos estão em Teoria dos Grafos Imagens
+Eles são usados como Teste de Validação para Algoritmos que testam planaridade, circuito hamiltoniano e Emparelhamento Máximo
+Vizinho e grau do vértice = número de vizinhos
+
+Outra forma de desenhar o grafo é como um grafo bipartido
+Separo os vértices em "de cima" e "debaixo", todas as arestas são de cima para baixo
+Este grafo é bom para vermos casamentos
+
+O problema das damas resolve problemas práticos da indústria, por exemplo, tenho máquinas e operários que sabem pilotar cada máquina, quero maximizar o número de máquinas funcionando, sendo que um operário não pode pilotar duas máquinas, como no exercício E1.25
+
+Algoritmo para maximizar máquinas funcionando
+1) Primeiro devo representar o desenho num dicionário. Duas possibilidades: ou a máquina é chave, ou o operário é chave
+Este código resolve um problema difícil em poucas linhas, isto porque escolhemos uma Estrutura de Dados boa para modelar
+
+Matéria nova:
+Caminhos e Circuitos (fechado) mostro pela sequência de vértices, circuito volta para a origem
+União e Intersecção de grafos = união e intersecção dos vértices e arestas dos dois grafos
+
+Não é possível desenhar K5 planar
+No desenho coloquei para fora AD e AC
+Ainda cruzam EC e BD
+Se eu colocar EC para fora, cruza com AD
+Se eu colocar BD para fora, cruza com AC
+Logo não é possível desenhar K5 sem cruzar linhas
+
+Kn,m é um grafo bipartido completo, onde temos n vértices em cima, m vértices embaixo, e todos os de cima são ligados com todos debaixo
+
+K3,3
+Desenho no formato de hexagono
+Tiro A2 para fora
+Ainda cruzam 1C e 3B
+Se eu tirar 1C cruza com A2 de fora
+Se eu tirar 3B cruza com A2 de fora
+Logo não é possível desenhar K3,3 sem cruzar as linhas
+
+
+
+
